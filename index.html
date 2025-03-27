@@ -1,1 +1,1778 @@
-<h1>Perfum page proyect</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Essence Luxe - Tu Perfumería de Lujo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #d4af37;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #f8f9fa;
+            background-image: url('https://i.pinimg.com/originals/33/e1/9c/33e19c12bc6a166477e1216c50d25a8c.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+
+        .navbar {
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-brand {
+            color: var(--secondary-color) !important;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .auth-container {
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 576px) {
+            .auth-container {
+                width: 95%;
+                padding: 15px;
+                margin: 10px auto;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h4 {
+                font-size: 1rem;
+            }
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .btn-gold {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+        }
+
+        .btn-gold:hover {
+            background-color: #c1a033;
+            color: white;
+        }
+
+        #mainContent {
+            display: none;
+        }
+
+        #authContent {
+            display: block;
+        }
+
+        .cart-icon {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        .dropdown-menu {
+            background-color: var(--primary-color);
+        }
+
+        .dropdown-item {
+            color: white;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .timeline {
+            padding: 15px 0;
+        }
+
+        .timeline-item {
+            padding-left: 40px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        @media (max-width: 576px) {
+            .timeline-item {
+                padding-left: 30px;
+                margin-bottom: 15px;
+            }
+
+            .timeline-item p {
+                font-size: 0.9rem;
+            }
+
+            .timeline-item small {
+                font-size: 0.8rem;
+            }
+        }
+
+        .card {
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.1);
+            height: auto;
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                min-height: auto;
+            }
+        }
+
+        .card-img-top {
+            height: 250px;
+            width: 100%;
+            object-fit: contain;
+            padding: 1rem;
+            background-color: #fff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        @media (max-width: 576px) {
+            .card-img-top {
+                height: 200px;
+            }
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+            padding: 1rem;
+            background-color: #fff;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            font-size: 0.9rem;
+            color: #666;
+            flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+
+        @media (max-width: 576px) {
+            .card-text {
+                -webkit-line-clamp: 3;
+            }
+        }
+
+        .row {
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .col-md-4 {
+            padding: 0 15px;
+        }
+
+        .modal-dialog {
+            margin: 0.5rem auto;
+            max-width: 95%;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                margin: 1.75rem auto;
+                max-width: 90%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .modal-dialog {
+                max-width: 800px;
+            }
+        }
+
+        .catalog-title {
+            color: #6a1b9a;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        @media (max-width: 576px) {
+            .catalog-title {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .saved-payment-methods {
+            margin-bottom: 1rem;
+        }
+
+        .payment-method-card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-method-card:hover {
+            border-color: var(--secondary-color);
+            background-color: #f8f9fa;
+        }
+
+        .payment-method-card.selected {
+            border-color: var(--secondary-color);
+            background-color: #fff8e1;
+        }
+
+        .contact-driver-box {
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-driver-box {
+                margin-top: 0.5rem;
+            }
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1060;
+            max-width: 90%;
+        }
+
+        @media (max-width: 576px) {
+            .notification {
+                top: 10px;
+                right: 10px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: -30px;
+            width: 2px;
+            background-color: #e9ecef;
+        }
+
+        .timeline-item:last-child:before {
+            display: none;
+        }
+
+        .timeline-item i {
+            position: absolute;
+            left: 10px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            background: white;
+        }
+
+        .card:hover .card-img-top {
+            transform: scale(1.1);
+        }
+
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-5px);
+        }
+
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        @media (max-width: 576px) {
+            .row {
+                margin-right: -10px;
+                margin-left: -10px;
+            }
+
+            .col-md-4 {
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+        }
+
+        /* Ajustes para tablets */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .card {
+                min-height: 500px;
+            }
+
+            .card-img-top {
+                height: 220px;
+            }
+
+            .col-md-4 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+
+        /* Ajustes para dispositivos móviles en modo landscape */
+        @media (max-height: 576px) and (orientation: landscape) {
+            .auth-container {
+                margin: 10px auto;
+            }
+
+            .card-img-top {
+                height: 180px;
+            }
+
+            .card {
+                min-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenido de Autenticación -->
+    <div id="authContent" class="container">
+        <div class="auth-container text-center">
+            <div class="logo">
+                <i class="fas fa-spray-can-sparkles"></i>
+            </div>
+            <h1 class="mb-4">Essence Luxe</h1>
+            <h4 class="text-muted mb-4">Tu destino para fragancias exclusivas</h4>
+            
+            <form id="authForm" class="text-start">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-gold w-100 mb-3">Iniciar Sesión</button>
+                <button type="button" class="btn btn-outline-secondary w-100" onclick="toggleAuthMode()">Crear Cuenta</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div id="mainContent">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-spray-can-sparkles"></i> Essence Luxe
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-user-circle cart-icon"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#" onclick="showCart()">
+                                    <i class="fas fa-shopping-cart"></i> Ver Carrito</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="showOrders()">
+                                    <i class="fas fa-box"></i> Compras Recientes</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="showTracking()">
+                                    <i class="fas fa-truck"></i> Seguimiento de Envío</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" onclick="showReviews()">
+                                    <i class="fas fa-star"></i> Reseñas de Clientes</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#" onclick="logout()">
+                                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Contenido del Catálogo -->
+        <div class="container mt-5">
+            <h2 class="text-center catalog-title">Nuestro Catálogo</h2>
+            <div id="productCatalog" class="row">
+                    <!-- Los productos se cargarán dinámicamente aquí -->
+                </div>
+            </div>
+    </div>
+
+    <!-- Modal del Carrito -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="cartItems">
+                    <!-- Items del carrito -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
+                    <button type="button" class="btn btn-gold" onclick="proceedToCheckout()">Continuar con el Pago</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getDatabase, ref, set, push, get, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCoXSgkKQ7vYYyTRibPcQm_rg3z9zWjkdE",
+            authDomain: "controlclientesperfumes.firebaseapp.com",
+            databaseURL: "https://controlclientesperfumes-default-rtdb.firebaseio.com",
+            projectId: "controlclientesperfumes",
+            storageBucket: "controlclientesperfumes.firebasestorage.app",
+            messagingSenderId: "1014744575088",
+            appId: "1:1014744575088:web:16b7099de280050adad8b5",
+            measurementId: "G-J3L7K6KZRB"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getDatabase(app);
+        const analytics = getAnalytics(app);
+
+        // Hacer las funciones de Firebase disponibles globalmente
+        window.firebaseAuth = {
+            signInWithEmailAndPassword: (email, password) => signInWithEmailAndPassword(auth, email, password),
+            createUserWithEmailAndPassword: (email, password) => createUserWithEmailAndPassword(auth, email, password),
+            signOut: () => signOut(auth)
+        };
+
+        window.firebaseDB = {
+            ref: (path) => ref(db, path),
+            set: (ref, data) => set(ref, data),
+            push: (ref) => push(ref),
+            get: (query) => get(query),
+            query: (ref, ...queryConstraints) => query(ref, ...queryConstraints),
+            orderByChild: (path) => orderByChild(path),
+            equalTo: (value) => equalTo(value)
+        };
+
+        window.auth = auth;
+        window.db = db;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Variables globales
+        let currentUser = null;
+        let cart = [];
+        let orders = [];
+        let savedPaymentMethods = [];
+        let savedAddresses = [];
+
+        // Productos (los precios son aleatorios como solicitaste)
+        const products = [
+            {
+                id: 1,
+                name: "Jean Paul Gaultier Le Male",
+                price: 89.99,
+                image: "https://m.media-amazon.com/images/I/51TkKJlJHsL.AC_SX679.jpg",
+                description: "Marca: Jean Paul Gaultier\nForma: Líquido\nVolumen: 1,01 Mililitros\nFragancia: Almond, Vainilla\nCaracterística: Larga duración"
+            },
+            {
+                id: 2,
+                name: "Jean Paul Gaultier Le Male Aviator",
+                price: 95.99,
+                image: "https://m.media-amazon.com/images/I/51ITX7w8DcL.AC_SX679.jpg",
+                description: "Marca: Jean Paul Gaultier\nForma: Aerosol\nVolumen: 4,2 Onzas\nFragancia: Fresco\nCaracterística: Long Lasting"
+            },
+            {
+                id: 3,
+                name: "Jean Paul Gaultier Ultra Male",
+                price: 120.50,
+                image: "https://m.media-amazon.com/images/I/51YnYgtasTL.AC_SX679.jpg",
+                description: "Marca: Jean Paul Gaultier\nForma: Líquido\nVolumen: 120 Mililitros\nFragancia: Amber Fougere\nCaracterística: Larga duración"
+            },
+            {
+                id: 4,
+                name: "Jean Paul Gaultier Le Beau",
+                price: 110.99,
+                image: "https://m.media-amazon.com/images/I/51xDJzq1oqL._AC_SX300_SY300_QL70_ML2.jpg",
+                description: "Marca: Jean Paul Gaultier\nForma: Líquido\nVolumen: 75 Mililitros\nFragancia: Oriental/Maderada\nCaracterística: Duración prolongada"
+            },
+            {
+                id: 5,
+                name: "Jean Paul Gaultier Le Male Elixir",
+                price: 135.99,
+                image: "https://m.media-amazon.com/images/I/61guEdOZAgL._AC_SY300_SX300_QL70_ML2.jpg",
+                description: "Marca: Jean Paul Gaultier\nForma: Aerosol\nVolumen: 300 Mililitros\nFragancia: Amaderado Ambar\nCaracterística: Larga duración\nNotas: Geranio, haba tonka, sándalo"
+            },
+            {
+                id: 6,
+                name: "Paco Rabanne 1 Million",
+                price: 79.99,
+                image: "https://m.media-amazon.com/images/I/51ftz77OObL.AC_SX679.jpg",
+                description: "Marca: Paco Rabanne\nForma: Botella\nVolumen: 50 Mililitros\nFragancia: Fresco\nCaracterística: Long Lasting"
+            },
+            {
+                id: 7,
+                name: "Paco Rabanne Phantom",
+                price: 125.99,
+                image: "https://m.media-amazon.com/images/I/718TOWfJvFL.AC_SX679.jpg",
+                description: "Marca: Paco Rabanne\nForma: Loción\nVolumen: 100 Mililitros\nFragancia: Cítrico, Acuático, Madera\nNotas: Lavanda, incienso, vainilla, haba tonka, ámbar"
+            },
+            {
+                id: 8,
+                name: "Paco Rabanne Invictus",
+                price: 89.99,
+                image: "https://m.media-amazon.com/images/I/6147uralQvL.AC_SX679.jpg",
+                description: "Marca: Paco Rabanne\nForma: Aerosol\nVolumen: 100 Mililitros\nFragancia: Toronja\nCaracterística: Larga duración"
+            },
+            {
+                id: 9,
+                name: "Paco Rabanne Pure XS",
+                price: 95.50,
+                image: "https://m.media-amazon.com/images/I/619hiBHRUZL.AC_SX679.jpg",
+                description: "Marca: Paco Rabanne\nForma: Líquido\nVolumen: 3,4 Mililitros\nFragancia: Fresco\nCaracterística: Larga duración"
+            },
+            {
+                id: 10,
+                name: "Versace Eros",
+                price: 115.99,
+                image: "https://m.media-amazon.com/images/I/71vWG5m7ipL._AC_SX300_SY300_QL70_ML2.jpg",
+                description: "Marca: Versace\nForma: Líquido\nVolumen: 100 Mililitros\nFragancia: Floral\nNotas: Menta, manzana verde, limón, cedro, vetiver, musgo de roble, vainilla, haba tonka"
+            },
+            {
+                id: 11,
+                name: "Versace Eros Flame",
+                price: 130.99,
+                image: "https://m.media-amazon.com/images/I/61FlTEEizZL.AC_SX679.jpg",
+                description: "Marca: Versace\nForma: Líquido\nVolumen: 3,4 Onzas\nFragancia: Fresco\nNotas: Limón, mandarina, naranja, pimienta negra, romero silvestre"
+            },
+            {
+                id: 12,
+                name: "Carolina Herrera Bad Boy",
+                price: 140.99,
+                image: "https://m.media-amazon.com/images/I/51beFr7ahKL.AC_SX679.jpg",
+                description: "Marca: Carolina Herrera\nForma: Líquido\nVolumen: 3,4 Onzas\nFragancia: Herbario, Madera\nNotas: Salvia, trufa negra, madera resinosa"
+            },
+            {
+                id: 13,
+                name: "Carolina Herrera 212 VIP Black",
+                price: 105.99,
+                image: "https://m.media-amazon.com/images/I/416wavB7NYL.AC_SX679.jpg",
+                description: "Marca: Carolina Herrera\nForma: Líquido\nVolumen: 100 Mililitros\nFragancia: Vainilla\nCaracterística: Larga duración"
+            },
+            {
+                id: 14,
+                name: "Carolina Herrera CH Men",
+                price: 85.99,
+                image: "https://m.media-amazon.com/images/I/41+r7XZBJUL.AC_SY300_SX300.jpg",
+                description: "Marca: Carolina Herrera\nForma: Aerosol\nVolumen: 3,4 Onzas\nFragancia: Oriental Woody\nCaracterística: Larga duración"
+            },
+            {
+                id: 15,
+                name: "Dior Sauvage",
+                price: 145.99,
+                image: "https://m.media-amazon.com/images/I/51iiuHC8ahL.AC_SX679.jpg",
+                description: "Marca: Dior\nForma: Líquido\nVolumen: 6,8 Onzas\nFragancia: Fresco\nConcentración: Eau de toilette"
+            },
+            {
+                id: 16,
+                name: "Afnan 9am Dive",
+                price: 95.99,
+                image: "https://i5.walmartimages.com/asr/b0c12eea-2eb5-4b48-a586-8e359744241c.65261b5f2918abc078642e460583e194.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+                description: "Marca: Afnan\nForma: Líquido\nVolumen: 100 Mililitros\nFragancia: Aromática Acuática\nNotas de Salida: Limón, menta, grosellas negras, pimienta rosa\nNotas de Corazón: Manzana, incienso, cedro\nNotas de Fondo: Jengibre, sándalo, pachulí, jazmín"
+            },
+            {
+                id: 17,
+                name: "Afnan 9 PM",
+                price: 85.99,
+                image: "https://i.ebayimg.com/images/g/zUsAAOSwlFNnf1MD/s-l960.webp",
+                description: "Marca: Afnan\nForma: Líquido\nVolumen: 100 Mililitros\nFragancia: Oriental\nNotas de Salida: Bergamota, lavandina, canela, manzana\nNotas de Corazón: Muguet, azahar\nNotas de Fondo: Pachulí, ámbar, vainilla, haba tonka"
+            },
+            {
+                id: 18,
+                name: "Afnan 9 PM REBEL",
+                price: 79.99,
+                image: "https://i5.walmartimages.com/asr/ebc5764d-1d42-4c4f-b131-be174e6f963a.70a81a2f310595ed39273d688ed64304.jpeg?odnHeight=160&odnWidth=160&odnBg=FFFFFF",
+                description: "Marca: Afnan\nForma: Líquido\nVolumen: 100 Mililitros\nFragancia: Oriental\nNotas de Salida: Piña, mandarina, manzana Granny Smith\nNotas de Corazón: Cedro, musgo de roble, vainilla\nNotas de Fondo: Ámbar gris, madera seca, caramelo, almizcle"
+            },
+            {
+                id: 19,
+                name: "Calvin Klein Be Unisex",
+                price: 82.99,
+                image: "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/981013343l.jpg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+                description: "Marca: Calvin Klein\nForma: Líquido\nVolumen: 200 Mililitros\nFragancia: Unisex\nCaracterística: Larga duración\nNotas: Bergamota, jazmín y madera de cedro\nDetalles: Es ideal para quien quiera tener una esencia diferente al resto\nDuración: Aroma que abraza la piel durante todo el día"
+            },
+            {
+                id: 20,
+                name: "Calvin Klein ONE Unisex",
+                price: 85.99,
+                image: "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/981013151l.jpg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+                description: "Marca: Calvin Klein\nForma: Líquido\nVolumen: 200 Mililitros\nFragancia: Unisex\nCaracterística: Equilibrio entre frescura y dinamismo\nNotas: Piña, nuez moscada y sándalo\nDetalles: Una fragancia que equilibra el brillo y sensualidad"
+            },
+            {
+                id: 21,
+                name: "Calvin Klein CK Everyone",
+                price: 78.99,
+                image: "https://i5.walmartimages.com.mx/samsmx/images/product-images/img_large/981013232l.jpg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+                description: "Marca: Calvin Klein\nForma: Líquido\nVolumen: 100 Mililitros\nFragancia: Amaderada cítrica\nNotas: Naranja y té negro\nCaracterística: Fragancia audaz\nDetalles: Irradia una simplicidad fresca y juvenil"
+            },
+            {
+                id: 22,
+                name: "Lattafa Khamrah Unisex",
+                price: 92.99,
+                image: "https://ae-pic-a1.aliexpress-media.com/kf/Sa41cf25859924f698a848fefdc630e1bV.jpg_220x220q75.jpg_.avif",
+                description: "Marca: Lattafa\nForma: Líquido\nVolumen: 100 Mililitros\nFragancia: Aromática especiada unisex\nNotas de Salida: Canela, Nuez moscada y Bergamota\nNotas Medias: Datas, Praline, Tuberosa y Mahononial\nNotas de Fondo: Vainilla, haba tonka, benzoína, mirra, madera de ámbar y madera de Akigala\nCaracterística: Adecuado para ropa de noche"
+            },
+            {
+                id: 23,
+                name: "Lattafa Bade'e Al Oud",
+                price: 88.99,
+                image: "https://www.bing.com/th?id=OPHS.jHL7aIS1hlb6pw474C474&o=5&pid=21.1&w=148&h=260&qlt=100&dpr=1.3&bw=6&bc=FFFFFF",
+                description: "Marca: Lattafa\nForma: Líquido\nVolumen: 100 Mililitros\nFragancia: Unisex\nNotas de Salida: Azafrán, Lavanda, Nuez moscada\nNotas Medias: Agarwood (oud), Pachulí\nNotas de Fondo: Agarwood (oud), Pachulí, Almizcle"
+            },
+            {
+                id: 24,
+                name: "Lattafa Asad Zanzibar",
+                price: 95.99,
+                image: "https://i.ebayimg.com/images/g/OosAAOSwOSBmH3z5/s-l140.webp",
+                description: "Marca: Lattafa\nForma: Líquido\nVolumen: 100 Mililitros\nFragancia: Aromática\nCaracterística: Larga duración\nNotas de Salida: Pimienta negra y Lavanda marina\nNotas Medias: Agua de coco salada e Iris\nNotas de Fondo: Vainilla e Incienso\nDetalles: Adecuado para todo momento"
+            }
+        ];
+
+        // Inicializar datos desde localStorage al cargar la página
+        window.addEventListener('load', function() {
+            loadSavedData();
+        });
+
+        function toggleAuthMode() {
+            const form = document.getElementById('authForm');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const toggleBtn = form.querySelector('button[type="button"]');
+            
+            if (submitBtn.textContent === "Iniciar Sesión") {
+                submitBtn.textContent = "Crear Cuenta";
+                toggleBtn.textContent = "¿Ya tienes cuenta? Inicia Sesión";
+            } else {
+                submitBtn.textContent = "Iniciar Sesión";
+                toggleBtn.textContent = "Crear Cuenta";
+            }
+        }
+
+        document.getElementById('authForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const isLogin = document.querySelector('button[type="submit"]').textContent === "Iniciar Sesión";
+            
+            try {
+                let userCredential;
+                if (isLogin) {
+                    userCredential = await firebaseAuth.signInWithEmailAndPassword(email, password);
+                } else {
+                    userCredential = await firebaseAuth.createUserWithEmailAndPassword(email, password);
+                    // Guardar datos iniciales del usuario en la base de datos
+                    await firebaseDB.set(firebaseDB.ref('users/' + userCredential.user.uid), {
+                        email: email,
+                        createdAt: Date.now(),
+                        orders: {}
+                    });
+                }
+                
+                currentUser = userCredential.user;
+                    document.getElementById('authContent').style.display = 'none';
+                    document.getElementById('mainContent').style.display = 'block';
+                loadProducts();
+                
+                // Cargar órdenes del usuario
+                const ordenesRef = firebaseDB.query(
+                    firebaseDB.ref('orders'),
+                    firebaseDB.orderByChild('userId'),
+                    firebaseDB.equalTo(currentUser.uid)
+                );
+                const ordenesSnapshot = await firebaseDB.get(ordenesRef);
+                const ordenesData = ordenesSnapshot.val() || {};
+                
+                orders = Object.values(ordenesData).map(orden => ({
+                    ...orden,
+                    date: new Date(orden.date),
+                    estimatedDelivery: new Date(orden.estimatedDelivery)
+                }));
+            } catch (error) {
+                showNotification(error.message);
+            }
+        });
+
+        function loadProducts() {
+            const catalog = document.getElementById('productCatalog');
+            catalog.innerHTML = products.map(product => `
+                <div class="col-md-4 mb-4">
+                        <div class="card">
+                        <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                            <div class="card-body">
+                            <h5 class="card-title">${product.name}</h5>
+                            <p class="card-text">${product.description}</p>
+                            <p class="card-text"><strong>Precio: $${product.price}</strong></p>
+                            <button class="btn btn-gold w-100" onclick="addToCart(${product.id})">
+                                Añadir al Carrito
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+            `).join('');
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const modal = document.createElement('div');
+            modal.className = 'modal fade';
+            modal.id = 'quantityModal';
+            
+            modal.innerHTML = `
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Seleccionar Cantidad</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="quantity" class="form-label">Cantidad</label>
+                                <input type="number" class="form-control" id="quantity" min="1" value="1">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-gold" onclick="confirmQuantity(${productId})">Añadir al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            const bsModal = new bootstrap.Modal(modal);
+            bsModal.show();
+            
+            modal.addEventListener('hidden.bs.modal', function () {
+                modal.remove();
+            });
+        }
+
+        function confirmQuantity(productId) {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const product = products.find(p => p.id === productId);
+            cart.push({...product, cartId: Date.now(), quantity: quantity});
+            const modal = bootstrap.Modal.getInstance(document.getElementById('quantityModal'));
+            modal.hide();
+            showNotification('Producto añadido al carrito');
+        }
+
+        function showCart() {
+            const modal = new bootstrap.Modal(document.getElementById('cartModal'));
+            const cartItemsContainer = document.getElementById('cartItems');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-center">Tu carrito está vacío</p>';
+            } else {
+                let total = 0;
+                cartItemsContainer.innerHTML = `
+                    <div class="cart-items">
+                        ${cart.map(item => {
+                            const itemTotal = item.price * item.quantity;
+                            total += itemTotal;
+                            return `
+                                <div class="card mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-md-2">
+                                            <img src="${item.image}" class="img-fluid rounded-start" alt="${item.name}">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">${item.name}</h5>
+                                                <p class="card-text">
+                                                    Precio unitario: $${item.price}<br>
+                                                    Cantidad: ${item.quantity}<br>
+                                                    Subtotal: $${itemTotal.toFixed(2)}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 d-flex align-items-center justify-content-center">
+                                            <button class="btn btn-danger btn-sm" onclick="removeFromCart(${item.cartId})">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                    <div class="text-end mt-3">
+                        <h4>Total: $${total.toFixed(2)}</h4>
+                    </div>
+                `;
+            }
+            
+            modal.show();
+        }
+
+        function removeFromCart(cartId) {
+            cart = cart.filter(item => item.cartId !== cartId);
+            showCart();
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'alert alert-success position-fixed top-0 end-0 m-3';
+            notification.style.zIndex = '1050';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
+
+        function saveUserData() {
+            const form = document.getElementById('checkoutForm');
+            const formData = {
+                name: form.querySelector('input[type="text"]:nth-of-type(1)').value,
+                lastName: form.querySelector('input[type="text"]:nth-of-type(2)').value,
+                address: form.querySelector('input[type="text"]:nth-of-type(3)').value,
+                city: form.querySelector('input[type="text"]:nth-of-type(4)').value,
+                postalCode: form.querySelector('input[type="text"]:nth-of-type(5)').value,
+                cardNumber: form.querySelector('input[pattern="[0-9]{16}"]').value,
+                cardExpiry: form.querySelector('input[placeholder="MM/YY"]').value,
+                cardCvv: form.querySelector('input[pattern="[0-9]{3,4}"]').value
+            };
+
+            savedAddresses.push({
+                name: formData.name,
+                lastName: formData.lastName,
+                address: formData.address,
+                city: formData.city,
+                postalCode: formData.postalCode
+            });
+
+            savedPaymentMethods.push({
+                cardNumber: formData.cardNumber,
+                cardExpiry: formData.cardExpiry,
+                cardCvv: formData.cardCvv
+            });
+
+            localStorage.setItem('savedAddresses', JSON.stringify(savedAddresses));
+            localStorage.setItem('savedPaymentMethods', JSON.stringify(savedPaymentMethods));
+        }
+
+        function loadSavedData() {
+            const savedAddressesData = localStorage.getItem('savedAddresses');
+            const savedPaymentMethodsData = localStorage.getItem('savedPaymentMethods');
+            
+            if (savedAddressesData) {
+                savedAddresses = JSON.parse(savedAddressesData);
+            }
+            if (savedPaymentMethodsData) {
+                savedPaymentMethods = JSON.parse(savedPaymentMethodsData);
+            }
+        }
+
+        // Función para guardar órdenes del usuario actual
+        function saveUserOrders() {
+            if (!currentUser) return;
+            
+            const email = currentUser.email;
+            const userOrdersKey = `orders_${email}`;
+            localStorage.setItem(userOrdersKey, JSON.stringify(orders));
+        }
+
+        // Función para cargar órdenes del usuario
+        function loadUserOrders(email) {
+            const userOrdersKey = `orders_${email}`;
+            const savedOrders = localStorage.getItem(userOrdersKey);
+            
+            if (savedOrders) {
+                // Convertir las fechas de string a objetos Date
+                orders = JSON.parse(savedOrders, (key, value) => {
+                    if (key === 'date' || key === 'estimatedDelivery') {
+                        return new Date(value);
+                    }
+                    return value;
+                });
+            } else {
+                orders = [];
+            }
+        }
+
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                showNotification('El carrito está vacío');
+                return;
+            }
+
+            const modal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
+            modal.hide();
+
+            const checkoutModal = document.createElement('div');
+            checkoutModal.className = 'modal fade';
+            checkoutModal.id = 'checkoutModal';
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            checkoutModal.innerHTML = `
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Finalizar Compra</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="checkoutForm">
+                                <h5 class="mb-3">Resumen de Compra</h5>
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        ${cart.map(item => `
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <div>
+                                                    <h6 class="mb-0">${item.name}</h6>
+                                                    <small class="text-muted">Cantidad: ${item.quantity}</small>
+                                                    <br>
+                                                    <small class="text-muted">Precio unitario: $${item.price}</small>
+                                                    <br>
+                                                    <small class="text-muted">Subtotal: $${(item.price * item.quantity).toFixed(2)}</small>
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <h5 class="mb-0">Total a Pagar:</h5>
+                                            <h5 class="mb-0">$${total.toFixed(2)}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h5 class="mb-3">Dirección de Envío</h5>
+                                <div id="addressForm">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Nombre</label>
+                                            <input type="text" class="form-control" id="name" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Apellidos</label>
+                                            <input type="text" class="form-control" id="lastName" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Dirección</label>
+                                        <input type="text" class="form-control" id="address" required>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Ciudad</label>
+                                            <input type="text" class="form-control" id="city" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Código Postal</label>
+                                            <input type="text" class="form-control" id="postalCode" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h5 class="mb-3 mt-4">Método de Pago</h5>
+                                <div id="paymentForm">
+                                    <div class="mb-3">
+                                        <label class="form-label">Número de Tarjeta</label>
+                                        <input type="text" class="form-control" required pattern="[0-9]{16}">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Fecha de Expiración</label>
+                                            <input type="text" class="form-control" placeholder="MM/YY" required pattern="[0-9]{2}/[0-9]{2}">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">CVV</label>
+                                            <input type="text" class="form-control" required pattern="[0-9]{3,4}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-gold" onclick="confirmOrder()">Confirmar Pedido</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(checkoutModal);
+            const bsCheckoutModal = new bootstrap.Modal(checkoutModal);
+            bsCheckoutModal.show();
+            
+            checkoutModal.addEventListener('hidden.bs.modal', function () {
+                checkoutModal.remove();
+            });
+        }
+
+        async function confirmOrder() {
+            if (!currentUser) {
+                showNotification('Debes iniciar sesión para realizar una compra');
+                return;
+            }
+
+            const form = document.getElementById('checkoutForm');
+            if (!form || !form.checkValidity()) {
+                showNotification('Por favor, completa todos los campos requeridos');
+                return;
+            }
+
+            try {
+                const formInputs = {
+                    name: document.getElementById('name')?.value || '',
+                    lastName: document.getElementById('lastName')?.value || '',
+                    address: document.getElementById('address')?.value || '',
+                    city: document.getElementById('city')?.value || '',
+                    postalCode: document.getElementById('postalCode')?.value || ''
+                };
+
+                const emptyFields = Object.entries(formInputs).filter(([_, value]) => !value);
+                if (emptyFields.length > 0) {
+                    showNotification('Por favor, completa todos los campos del formulario');
+                    return;
+                }
+
+                const orderNumber = Math.random().toString(36).substr(2, 9).toUpperCase();
+                const estimatedDelivery = new Date();
+                estimatedDelivery.setDate(estimatedDelivery.getDate() + 3);
+
+                const courierCompanies = ['FEDEX', 'DHL', 'ESTAFETA', 'PAQUETE EXPRESS', 'JYT EXPRESS'];
+                const randomCourier = courierCompanies[Math.floor(Math.random() * courierCompanies.length)];
+                const trackingNumber = randomCourier.substr(0, 3) + Math.floor(Math.random() * 1000000);
+
+                const order = {
+                    userId: currentUser.uid,
+                    userEmail: currentUser.email,
+                    orderNumber: orderNumber,
+                    items: cart.map(item => ({
+                        productId: item.id,
+                        quantity: item.quantity,
+                        price: item.price,
+                        name: item.name,
+                        image: item.image
+                    })),
+                    total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                    date: Date.now(),
+                    estimatedDelivery: estimatedDelivery.getTime(),
+                    status: 'En proceso',
+                    courier: randomCourier,
+                    trackingNumber: trackingNumber,
+                    shippingAddress: formInputs,
+                    createdAt: Date.now()
+                };
+
+                // Crear nueva orden en la base de datos
+                const ordersRef = firebaseDB.ref('orders');
+                const newOrderRef = firebaseDB.push(ordersRef);
+                
+                // Guardar la orden
+                await firebaseDB.set(newOrderRef, order);
+                
+                // Actualizar las órdenes del usuario
+                const userOrdersRef = firebaseDB.ref(`users/${currentUser.uid}/orders/${newOrderRef.key}`);
+                await firebaseDB.set(userOrdersRef, {
+                    orderNumber: orderNumber,
+                    date: order.date,
+                    total: order.total,
+                    status: order.status
+                });
+
+                // Actualizar la lista de órdenes local
+                orders.push(order);
+                
+                // Limpiar el carrito y cerrar el modal
+                cart = [];
+                const modal = bootstrap.Modal.getInstance(document.getElementById('checkoutModal'));
+                if (modal) {
+                    modal.hide();
+                }
+
+                showOrderConfirmation(order);
+            } catch (error) {
+                console.error('Error al procesar la orden:', error);
+                showNotification('Error al procesar la orden: ' + error.message);
+            }
+        }
+
+        function showOrderConfirmation(order) {
+            const confirmationModal = document.createElement('div');
+            confirmationModal.className = 'modal fade';
+            confirmationModal.id = 'confirmationModal';
+            
+            // Convertir el timestamp a objeto Date
+            const estimatedDeliveryDate = new Date(order.estimatedDelivery);
+            
+            confirmationModal.innerHTML = `
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">¡Gracias por tu compra!</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
+                            </div>
+                            <h6>Número de Pedido: ${order.orderNumber}</h6>
+                            <p>Fecha estimada de entrega: ${estimatedDeliveryDate.toLocaleDateString()}</p>
+                            <p>Total pagado: $${order.total.toFixed(2)}</p>
+                            <p>Puedes seguir el estado de tu pedido en la sección "Compras Recientes".</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-gold" data-bs-dismiss="modal">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(confirmationModal);
+            const bsConfirmationModal = new bootstrap.Modal(confirmationModal);
+            bsConfirmationModal.show();
+            
+            confirmationModal.addEventListener('hidden.bs.modal', function () {
+                confirmationModal.remove();
+            });
+        }
+
+        async function deleteOrder(orderId, orderNumber) {
+            if (!confirm(`¿Estás seguro de que deseas eliminar el pedido #${orderNumber}?`)) {
+                return;
+            }
+
+            try {
+                // Eliminar la orden de Firebase
+                await firebaseDB.set(firebaseDB.ref(`orders/${orderId}`), null);
+                
+                // Eliminar la orden del array local
+                orders = orders.filter(order => order.id !== orderId);
+                
+                // Mostrar mensaje de éxito
+                showNotification('Pedido eliminado correctamente');
+                
+                // Actualizar la vista de órdenes
+                showOrders();
+            } catch (error) {
+                console.error('Error al eliminar la orden:', error);
+                showNotification('Error al eliminar el pedido: ' + error.message);
+            }
+        }
+
+        async function showOrders() {
+            if (!currentUser) {
+                showNotification('Debes iniciar sesión para ver tus pedidos');
+                return;
+            }
+
+            try {
+                // Cerrar cualquier modal existente
+                const existingModals = document.querySelectorAll('.modal');
+                existingModals.forEach(modal => {
+                    const bsModal = bootstrap.Modal.getInstance(modal);
+                    if (bsModal) {
+                        bsModal.hide();
+                    }
+                    modal.remove();
+                });
+                
+                // Limpiar cualquier backdrop residual
+                document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
+                document.body.classList.remove('modal-open');
+                document.body.style.overflow = '';
+                document.body.style.paddingRight = '';
+
+                // Obtener las órdenes de Firebase
+                const ordenesRef = firebaseDB.query(
+                    firebaseDB.ref('orders'),
+                    firebaseDB.orderByChild('userId'),
+                    firebaseDB.equalTo(currentUser.uid)
+                );
+                
+                const ordenesSnapshot = await firebaseDB.get(ordenesRef);
+                const ordenesData = ordenesSnapshot.val() || {};
+                
+                // Convertir las órdenes a array y ordenarlas por fecha
+                orders = Object.entries(ordenesData).map(([key, orden]) => {
+                    const now = Date.now();
+                    const orderDate = new Date(orden.date).getTime();
+                    const timeDiff = now - orderDate;
+                    const hoursElapsed = timeDiff / (1000 * 60 * 60);
+                    
+                    let currentState;
+                    if (hoursElapsed < 2) {
+                        currentState = 'En proceso';
+                    } else if (hoursElapsed < 24) {
+                        currentState = 'En proceso';
+                    } else if (hoursElapsed < 48) {
+                        currentState = 'En proceso';
+                    } else if (hoursElapsed < 72) {
+                        currentState = 'En proceso';
+                    } else {
+                        currentState = 'Pedido Completado';
+                    }
+
+                    return {
+                        ...orden,
+                        id: key,
+                        date: new Date(orden.date),
+                        estimatedDelivery: new Date(orden.estimatedDelivery),
+                        status: currentState
+                    };
+                }).sort((a, b) => b.date - a.date); // Ordenar por fecha más reciente
+
+                const modal = document.createElement('div');
+                modal.className = 'modal fade';
+                modal.id = 'ordersModal';
+                
+                modal.innerHTML = `
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Mis Pedidos</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                ${orders.length === 0 ? 
+                                    '<p class="text-center">No tienes pedidos realizados</p>' : 
+                                    orders.map(order => `
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                                    <h6 class="card-title mb-0">Pedido #${order.orderNumber}</h6>
+                                                    <div>
+                                                        <span class="badge ${order.status === 'Pedido Completado' ? 'bg-success' : 'bg-primary'} me-2">${order.status}</span>
+                                                        <button class="btn btn-danger btn-sm" onclick="deleteOrder('${order.id}', '${order.orderNumber}')">
+                                                            <i class="fas fa-trash"></i> Eliminar
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <h6 class="mb-2">Productos:</h6>
+                                                    ${order.items.map(item => `
+                                                        <div class="d-flex align-items-center mb-2">
+                                                            <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: contain; margin-right: 10px;">
+                                                            <div>
+                                                                <p class="mb-0">${item.name}</p>
+                                                                <small class="text-muted">Cantidad: ${item.quantity} | Precio: $${item.price}</small>
+                                                            </div>
+                                                        </div>
+                                                    `).join('')}
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="mb-1"><strong>Fecha:</strong> ${order.date.toLocaleDateString()}</p>
+                                                        <p class="mb-1"><strong>Entrega estimada:</strong> ${order.estimatedDelivery.toLocaleDateString()}</p>
+                                                        <p class="mb-1"><strong>Total:</strong> $${order.total.toFixed(2)}</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p class="mb-1"><strong>Dirección de envío:</strong></p>
+                                                        <p class="mb-0">
+                                                            ${order.shippingAddress.name} ${order.shippingAddress.lastName}<br>
+                                                            ${order.shippingAddress.address}<br>
+                                                            ${order.shippingAddress.city}, ${order.shippingAddress.postalCode}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-3">
+                                                    <button class="btn btn-sm btn-outline-primary" onclick="showTracking('${order.orderNumber}')">
+                                                        Ver Seguimiento
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                const bsModal = new bootstrap.Modal(modal);
+                bsModal.show();
+                
+                modal.addEventListener('hidden.bs.modal', function () {
+                    modal.remove();
+                    document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
+                    document.body.classList.remove('modal-open');
+                    document.body.style.overflow = '';
+                    document.body.style.paddingRight = '';
+                });
+            } catch (error) {
+                console.error('Error al cargar las órdenes:', error);
+                showNotification('Error al cargar las órdenes: ' + error.message);
+            }
+        }
+
+        async function showTracking(orderNumber) {
+            if (!currentUser) {
+                showNotification('Debes iniciar sesión para ver el seguimiento');
+                return;
+            }
+
+            // Cerrar cualquier modal existente
+            const existingModals = document.querySelectorAll('.modal');
+            existingModals.forEach(modal => {
+                const bsModal = bootstrap.Modal.getInstance(modal);
+                if (bsModal) {
+                    bsModal.hide();
+                }
+                modal.remove();
+            });
+            
+            // Limpiar cualquier backdrop residual
+            document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+
+            const modal = document.createElement('div');
+            modal.className = 'modal fade';
+            modal.id = 'trackingModal';
+            
+            if (!orderNumber) {
+                modal.innerHTML = `
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Seguimiento de Envío</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="trackingForm" class="mb-3">
+                                    <div class="mb-3">
+                                        <label for="orderNumberInput" class="form-label">Introduce tu número de pedido</label>
+                                        <input type="text" class="form-control" id="orderNumberInput" required placeholder="Ej: ABC123XYZ">
+                                    </div>
+                                    <button type="submit" class="btn btn-gold">Consultar seguimiento</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                const bsModal = new bootstrap.Modal(modal);
+                bsModal.show();
+                
+                // Agregar el event listener al formulario
+                document.getElementById('trackingForm').addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const inputOrderNumber = document.getElementById('orderNumberInput').value.trim();
+                    bsModal.hide();
+                    await showTracking(inputOrderNumber);
+                });
+            } else {
+                try {
+                    const orderSnapshot = await firebaseDB.get(firebaseDB.query(
+                        firebaseDB.ref('orders'),
+                        firebaseDB.orderByChild('orderNumber'),
+                        firebaseDB.equalTo(orderNumber)
+                    ));
+                    
+                    if (!orderSnapshot.exists()) {
+                        throw new Error('Orden no encontrada');
+                    }
+
+                    const ordenesData = orderSnapshot.val();
+                    const orden = Object.values(ordenesData)[0];
+                    
+                    // Calcular el estado actual basado en el tiempo transcurrido
+                    const now = Date.now();
+                    const orderDate = new Date(orden.date).getTime();
+                    const timeDiff = now - orderDate;
+                    const hoursElapsed = timeDiff / (1000 * 60 * 60);
+                    
+                    let currentState;
+                    if (hoursElapsed < 2) {
+                        currentState = 'confirmado';
+                    } else if (hoursElapsed < 24) {
+                        currentState = 'preparado';
+                    } else if (hoursElapsed < 48) {
+                        currentState = 'recibido';
+                    } else if (hoursElapsed < 72) {
+                        currentState = 'reparto';
+                    } else {
+                        currentState = 'entregado';
+                    }
+                    
+                    const trackingInfo = {
+                        orderNumber: orden.orderNumber,
+                        courier: orden.courier,
+                        trackingCode: orden.trackingNumber,
+                        estimatedDelivery: new Date(orden.estimatedDelivery),
+                        driverPhone: '9' + Math.random().toString().substr(2, 9),
+                        orderDate: new Date(orden.date),
+                        currentState: currentState
+                    };
+                    
+                    const timelineItems = [
+                        {
+                            icon: 'fas fa-check-circle text-success',
+                            text: 'Pedido confirmado',
+                            date: trackingInfo.orderDate,
+                            state: 'confirmado'
+                        },
+                        {
+                            icon: 'fas fa-box text-primary',
+                            text: 'Preparado y embalado',
+                            date: new Date(trackingInfo.orderDate.getTime() + 1000 * 60 * 60),
+                            state: 'preparado'
+                        },
+                        {
+                            icon: 'fas fa-shipping-fast text-info',
+                            text: `Recibido por ${trackingInfo.courier}`,
+                            date: new Date(trackingInfo.orderDate.getTime() + 1000 * 60 * 60 * 24),
+                            state: 'recibido'
+                        },
+                        {
+                            icon: 'fas fa-truck text-warning',
+                            text: 'En reparto',
+                            date: new Date(trackingInfo.orderDate.getTime() + 1000 * 60 * 60 * 48),
+                            state: 'reparto'
+                        },
+                        {
+                            icon: 'fas fa-home text-success',
+                            text: 'Pedido Entregado',
+                            date: new Date(trackingInfo.orderDate.getTime() + 1000 * 60 * 60 * 72),
+                            state: 'entregado'
+                        }
+                    ];
+                    
+                    modal.innerHTML = `
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Seguimiento de Envío</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card mb-4">
+                                        <div class="card-header bg-primary text-white">
+                                            <div class="d-flex justify-content-between">
+                                                <h6 class="mb-0">Pedido #${trackingInfo.orderNumber}</h6>
+                                                <span class="badge bg-warning text-dark">${trackingInfo.courier}</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <p><strong>Empresa de mensajería:</strong> ${trackingInfo.courier}</p>
+                                                    <p><strong>Número de guía:</strong> ${trackingInfo.trackingCode}</p>
+                                                    <p><strong>Fecha de entrega estimada:</strong> ${trackingInfo.estimatedDelivery.toLocaleDateString()}</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    ${currentState !== 'entregado' ? `
+                                                        <div class="contact-driver-box p-3 border rounded">
+                                                            <h6 class="text-center mb-3">Contactar con el repartidor</h6>
+                                                            <p class="text-center mb-2"><i class="fas fa-phone-alt me-2"></i>${trackingInfo.driverPhone}</p>
+                                                            <button class="btn btn-sm btn-outline-primary w-100">Llamar ahora</button>
+                                                        </div>
+                                                    ` : `
+                                                        <div class="contact-driver-box p-3 border rounded bg-success text-white">
+                                                            <h6 class="text-center mb-3">¡Pedido Entregado!</h6>
+                                                            <p class="text-center mb-2">Gracias por tu compra</p>
+                                                        </div>
+                                                    `}
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="timeline mt-4">
+                                                ${timelineItems.map(item => `
+                                                    <div class="timeline-item ${item.state === currentState ? 'active' : ''}">
+                                                        <i class="${item.icon} ${item.state === currentState ? 'pulse' : ''}"></i>
+                                                        <p>${item.text}<br>
+                                                        <small>${item.state === currentState ? 'Estado actual - ' : ''}${
+                                                            item.state === currentState || timelineItems.find(t => t.state === currentState).date >= item.date 
+                                                            ? item.date.toLocaleString() 
+                                                            : 'Pendiente'
+                                                        }</small></p>
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <a href="#" class="btn btn-gold" target="_blank">Ir a sitio de ${trackingInfo.courier}</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Agregar estilos para la animación de pulso
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        .timeline-item.active {
+                            font-weight: bold;
+                        }
+                        .timeline-item .pulse {
+                            animation: pulse 2s infinite;
+                        }
+                        @keyframes pulse {
+                            0% {
+                                transform: scale(1);
+                                opacity: 1;
+                            }
+                            50% {
+                                transform: scale(1.2);
+                                opacity: 0.7;
+                            }
+                            100% {
+                                transform: scale(1);
+                                opacity: 1;
+                            }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                    
+                    document.body.appendChild(modal);
+                    const bsModal = new bootstrap.Modal(modal);
+                    bsModal.show();
+                } catch (error) {
+                    showNotification(error.message);
+                    return;
+                }
+            }
+            
+            // Manejar el cierre del modal
+            modal.addEventListener('hidden.bs.modal', function () {
+                modal.remove();
+                document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
+                document.body.classList.remove('modal-open');
+                document.body.style.overflow = '';
+                document.body.style.paddingRight = '';
+            });
+        }
+
+        function logout() {
+            firebaseAuth.signOut().then(() => {
+                currentUser = null;
+                cart = [];
+                orders = [];
+                document.getElementById('mainContent').style.display = 'none';
+                document.getElementById('authContent').style.display = 'block';
+                document.getElementById('authForm').reset();
+                showNotification('Has cerrado sesión correctamente');
+            }).catch((error) => {
+                showNotification('Error al cerrar sesión: ' + error.message);
+            });
+        }
+
+        function showReviews() {
+            // Cerrar cualquier modal existente
+            const existingModals = document.querySelectorAll('.modal');
+            existingModals.forEach(modal => {
+                const bsModal = bootstrap.Modal.getInstance(modal);
+                if (bsModal) {
+                    bsModal.hide();
+                }
+                modal.remove();
+            });
+            
+            // Limpiar cualquier backdrop residual
+            document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+
+            const nombres = [
+                "María González", "Carlos Rodríguez", "Ana Martínez", "Juan Pérez", "Laura Sánchez",
+                "Pedro López", "Sofia Torres", "Miguel Ruiz", "Isabel Castro", "Roberto Díaz",
+                "Carmen Morales", "David Silva", "Elena Ramírez", "José García", "Patricia Vega",
+                "Francisco Ortiz", "Lucía Moreno", "Antonio Jiménez", "Rosa Navarro", "Manuel Ruiz"
+            ];
+
+            const comentarios = [
+                "¡Excelente calidad! El perfume es original y dura todo el día.",
+                "Me llegó más rápido de lo esperado, muy satisfecha con la compra.",
+                "El aroma es espectacular, superó mis expectativas.",
+                "Empaquetado perfecto y el producto en excelente estado.",
+                "La atención al cliente fue muy buena, recomiendo la página.",
+                "El perfume es auténtico, lo recomiendo ampliamente.",
+                "Entrega rápida y el producto es de primera calidad.",
+                "Me encantó la presentación y el aroma es increíble.",
+                "Excelente servicio, volveré a comprar sin duda.",
+                "El producto es original y el precio es justo.",
+                "La calidad del perfume es excepcional, muy satisfecho.",
+                "Entrega puntual y el producto es exactamente como lo describen.",
+                "El servicio al cliente es muy eficiente, gracias.",
+                "El perfume es de excelente calidad, lo recomiendo.",
+                "Me gustó mucho la atención y la rapidez en la entrega.",
+                "El producto es original y el aroma es espectacular.",
+                "Excelente servicio, el perfume es de primera calidad.",
+                "La entrega fue rápida y el producto está perfecto.",
+                "Muy satisfecho con la compra, volveré a comprar."
+            ];
+
+            const modal = document.createElement('div');
+            modal.className = 'modal fade';
+            modal.id = 'reviewsModal';
+            
+            // Generar reseñas aleatorias
+            const reviews = Array.from({length: 20}, (_, i) => {
+                const nombre = nombres[i];
+                const comentario = comentarios[i];
+                const rating = Math.floor(Math.random() * 2) + 4; // 4 o 5 estrellas
+                const perfume = products[Math.floor(Math.random() * products.length)];
+                const fecha = new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000); // Últimos 30 días
+
+                return {
+                    nombre,
+                    comentario,
+                    rating,
+                    perfume: perfume.name,
+                    fecha
+                };
+            });
+
+            // Ordenar reseñas por fecha (más recientes primero)
+            reviews.sort((a, b) => b.fecha - a.fecha);
+
+            modal.innerHTML = `
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Reseñas de Clientes</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="reviews-container">
+                                        ${reviews.map(review => `
+                                            <div class="card mb-3">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <h6 class="card-title mb-0">${review.nombre}</h6>
+                                                        <small class="text-muted">${review.fecha.toLocaleDateString()}</small>
+                                                    </div>
+                                                    <div class="mb-2">
+                                                        ${Array(5).fill().map((_, i) => `
+                                                            <i class="fas fa-star ${i < review.rating ? 'text-warning' : 'text-muted'}"></i>
+                                                        `).join('')}
+                                                    </div>
+                                                    <p class="card-text mb-1"><strong>Producto:</strong> ${review.perfume}</p>
+                                                    <p class="card-text">${review.comentario}</p>
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                
+            document.body.appendChild(modal);
+            const bsModal = new bootstrap.Modal(modal);
+            bsModal.show();
+            
+            modal.addEventListener('hidden.bs.modal', function () {
+                modal.remove();
+                document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
+                document.body.classList.remove('modal-open');
+                document.body.style.overflow = '';
+                document.body.style.paddingRight = '';
+            });
+        }
+    </script>
+</body>
+</html>
